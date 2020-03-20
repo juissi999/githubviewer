@@ -1,10 +1,9 @@
-import React from 'react'
-import Commit from '../Commit/'
+import React, {useEffect} from 'react'
 
-const Repository = () => {
+const Repository = ({repo}) => {
+  
   return (<div>
-          repository
-          <Commit />
+          {repo.name}
           </div>)
 }
 

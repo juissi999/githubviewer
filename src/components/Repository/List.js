@@ -1,9 +1,11 @@
 import React from 'react'
 import Repository from './'
 
-const RepositoryList = () => {
+const RepositoryList = ({repos}) => {
   return (<div>
-            <Repository/>
+            {repos.map((repo, i)=>{
+              return(<Repository key={i} repo={repo}/>)
+            })}
           </div>)
 }
 
