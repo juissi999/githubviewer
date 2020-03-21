@@ -2,7 +2,8 @@ import React from 'react'
 import CommitMsg from './Msg.js'
 import Author from '../Author/'
 
-const Commit = () => {
+const Commit = ({commit}) => {
+  console.log(commit)
   return (<div>
           <Author />
           <CommitMsg />

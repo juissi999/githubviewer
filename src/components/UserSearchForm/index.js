@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import ghGetter from '../../ghGetter.js'
 
-const UserNameForm = ({setRepos}) => {
+const UserSearchForm = ({setUserName, setRepos}) => {
   const [formUserName, setFormUserName] = useState('')
 
   const onChange = (event) => {
@@ -10,8 +10,10 @@ const UserNameForm = ({setRepos}) => {
 
   const onClick = () => {
     
-    const request = ghGetter.getRepos(formUserName)
+    const userName = formUserName
+    const request = ghGetter.getRepos(userName)
     request.then((response) => {
+      setUserName(userName)
       setRepos(response)
     })
   }
@@ -22,4 +24,4 @@ const UserNameForm = ({setRepos}) => {
     </div>)
 }
 
-export default UserNameForm
+export default UserSearchForm

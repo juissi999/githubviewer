@@ -1,12 +1,12 @@
 import React from 'react'
 import Repository from './'
 
-const RepositoryList = ({repos}) => {
-  return (<div>
+const RepositoryList = ({repos, setSelectedRepo}) => {
+  return (<ul>
             {repos.map((repo, i)=>{
-              return(<Repository key={i} repo={repo}/>)
+              return(<Repository key={i} repo={repo} setSelectedRepo={setSelectedRepo}/>)
             })}
-          </div>)
+          </ul>)
 }
 
 export default RepositoryList

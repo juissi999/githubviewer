@@ -1,10 +1,14 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 
-const Repository = ({repo}) => {
+const Repository = ({repo, setSelectedRepo}) => {
   
-  return (<div>
-          {repo.name}
-          </div>)
+  const onClick = () => {
+    setSelectedRepo(repo.name)
+  }
+
+  return (<li>
+          <button className={'repository'} onClick={onClick}>{repo.name}</button>
+          </li>)
 }
 
 export default Repository
