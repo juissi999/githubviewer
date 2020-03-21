@@ -7,16 +7,16 @@ import CommitList from './Commit/List.js'
 const App = () => {
 
   const [repos, setRepos] = useState([])
-  const [userName, setUserName] = useState('')
+  const [selectedUser, setSelectedUser] = useState('')
   const [selectedRepo, setSelectedRepo] = useState('')
 
   if (selectedRepo === '') {
     return(<>
-            <UserSearchForm setUserName={setUserName} setRepos={setRepos}/>
+            <UserSearchForm setSelectedUser={setSelectedUser} setRepos={setRepos}/>
             <RepositoryList repos={repos} setSelectedRepo={setSelectedRepo}/>
            </>)
   } else {
-    return (<><CommitList selectedRepo={selectedRepo} setSelectedRepo={setSelectedRepo}/></>)
+    return (<><CommitList selectedUser={selectedUser} selectedRepo={selectedRepo} setSelectedRepo={setSelectedRepo}/></>)
   }
 }
 
