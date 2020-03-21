@@ -34,7 +34,7 @@ const CommitList = ({selectedUser, selectedRepo}) => {
     })
 
     // map the remaining commits and return react elements
-    return (firstCommits.map((c,i)=><Commit key={i} commit={c.commit}/>))
+    return (firstCommits.map((c,i)=><Commit key={i} commit={c}/>))
   }
 
   return (<div>

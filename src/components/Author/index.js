@@ -3,18 +3,18 @@ import AuthorName from './Name.js'
 import AuthorAvatar from './Avatar.js'
 import AuthorDate from './Date.js'
 
-const Author = ({author}) => {
+const Author = ({name, commitdate, avatar_url}) => {
 
-  const renderDate = () => {
+  const renderDate = (ghdate) => {
     // clear the daystring to be more human readable
-    const d = new Date(author.date)
+    const d = new Date(ghdate)
     return (d.toLocaleDateString("fi-FI"))
   }
 
   return (<div className={'author'}>
-          <AuthorName name={author.name}/>
-          <AuthorDate date={renderDate(author.date)}/>
-          <AuthorAvatar />
+          <AuthorAvatar url={avatar_url}/>
+          <AuthorName name={name}/>
+          <AuthorDate date={renderDate(commitdate)}/>
           </div>)
 }
 
