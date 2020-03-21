@@ -1,8 +1,6 @@
 import React, {useState} from 'react'
-import UserSearchForm from './UserSearchForm/'
-import RepositoryList from './Repository/List.js'
-import CommitList from './Commit/List.js'
-
+import ViewUserSearch from './View/UserSearch.js'
+import CommitDetails from './View/CommitDetails.js'
 
 const App = () => {
 
@@ -12,11 +10,12 @@ const App = () => {
 
   if (selectedRepo === '') {
     return(<>
-            <UserSearchForm setSelectedUser={setSelectedUser} setRepos={setRepos}/>
-            <RepositoryList repos={repos} setSelectedRepo={setSelectedRepo}/>
+           <ViewUserSearch setSelectedRepo={setSelectedRepo} setSelectedUser={setSelectedUser} repos={repos} setRepos={setRepos} />
            </>)
   } else {
-    return (<><CommitList selectedUser={selectedUser} selectedRepo={selectedRepo} setSelectedRepo={setSelectedRepo}/></>)
+    return (<>
+            <CommitDetails selectedUser={selectedUser} selectedRepo={selectedRepo} setSelectedRepo={setSelectedRepo}/>
+            </>)
   }
 }
 

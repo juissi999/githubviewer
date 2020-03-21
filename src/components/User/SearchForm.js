@@ -1,8 +1,13 @@
 import React, {useState} from 'react'
 import ghGetter from '../../ghGetter.js'
+import Error from '../Error'
 
 const UserSearchForm = ({setSelectedUser, setRepos}) => {
+
+  let errorTimeout = null
+
   const [formUserName, setFormUserName] = useState('')
+  const [errorMsg, setErrorMsg] = useState('')
 
   const onChange = (event) => {
     setFormUserName(event.target.value)
@@ -20,12 +25,22 @@ const UserSearchForm = ({setSelectedUser, setRepos}) => {
       setSelectedUser(userName)
       setRepos(response)
     })
+    .catch(error => {
+      setRepos([])
+      clearTimeout(errorTimeout)
+      setErrorMsg(`${error}`)
+      errorTimeout = setTimeout(()=>setErrorMsg(''), 2000)
+    })
   }
 
-  return (<form onSubmit={onSubmit} className={'usersearch'}>
-          <input onChange={onChange} value={formUserName}/>
-          <button type={'submit'}>Find user</button>
-          </form>)
+  return (<div>
+            <form onSubmit={onSubmit} className={'usersearch'}>
+            <input onChange={onChange} value={formUserName}/>
+            <button type={'submit'}>Find user</button>
+            </form>
+            <Error>{errorMsg}</Error>
+          </div>
+          )
 }
 
 export default UserSearchForm
