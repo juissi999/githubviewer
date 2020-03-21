@@ -1,12 +1,16 @@
 import React, {useState, useEffect}  from 'react'
+import Error from '../Error/'
 import Commit from './'
 import ghGetter from '../../ghGetter'
 
 const maxCommitCount = 10
 
-const CommitList = ({selectedUser, selectedRepo, setSelectedRepo}) => {
+const CommitList = ({selectedUser, selectedRepo}) => {
+
+  let errorTimeout = null
 
   const [commits, setCommits] = useState([])
+  const [errorMsg, setErrorMsg] = useState('')
 
   useEffect(() => {
     // use effect hook to query commits for this repository at start
@@ -14,12 +18,12 @@ const CommitList = ({selectedUser, selectedRepo, setSelectedRepo}) => {
     .then((c) => {
       setCommits(c)
     })
+    .catch(error=>{
+      clearTimeout(errorTimeout)
+      setErrorMsg(`${error}`)
+      errorTimeout = setTimeout(()=>setErrorMsg(''), 2000)
+    })
   }, [])
-
-  const onClick = () => {
-    // back-button causes re-rendering of the repository-list with hook
-    setSelectedRepo('')
-  }
 
   const mapCommits = () => {
     // first filter all commits array to get at most maxCommitCount commits
@@ -34,9 +38,10 @@ const CommitList = ({selectedUser, selectedRepo, setSelectedRepo}) => {
   }
 
   return (<div>
-            <button onClick={onClick}>Back</button>
-            {selectedRepo}
-            {mapCommits()}
+            <Error>{errorMsg}</Error>
+            <div>
+              {mapCommits()}
+            </div>
           </div>)
   }
 
