@@ -5,12 +5,9 @@ import NavigationForm from '../NavigationForm/'
 const CommitDetails = ({selectedUser, selectedRepo, setSelectedRepo}) => {
 
   return (<>
-          <div>
-          <NavigationForm selectedUser={selectedUser} selectedRepo={selectedRepo} setSelectedRepo={setSelectedRepo} />
-          </div>
-          <div>
-          <CommitList selectedUser={selectedUser} selectedRepo={selectedRepo} />
-          </div></>)
+            <NavigationForm selectedUser={selectedUser} selectedRepo={selectedRepo} setSelectedRepo={setSelectedRepo} />
+            <CommitList selectedUser={selectedUser} selectedRepo={selectedRepo}/>
+          </>)
   }
 
 export default CommitDetails
