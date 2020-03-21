@@ -8,8 +8,12 @@ const UserSearchForm = ({setSelectedUser, setRepos}) => {
     setFormUserName(event.target.value)
   }
 
-  const onClick = () => {
-    
+  const onSubmit = (event) => {
+    // callback on form submit
+    // set selected user hook and repos hook to
+    // cause re-rendering on repos list
+    event.preventDefault()
+
     const userName = formUserName
     const request = ghGetter.getRepos(userName)
     request.then((response) => {
@@ -18,10 +22,10 @@ const UserSearchForm = ({setSelectedUser, setRepos}) => {
     })
   }
 
-  return (<div>
-    <input onChange={onChange} value={formUserName}/>
-    <button onClick={onClick}>Find user</button>
-    </div>)
+  return (<form onSubmit={onSubmit} className={'usersearch'}>
+          <input onChange={onChange} value={formUserName}/>
+          <button type={'submit'}>Find user</button>
+          </form>)
 }
 
 export default UserSearchForm
