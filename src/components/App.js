@@ -10,7 +10,7 @@ const App = () => {
 
   if (selectedRepo === '') {
     return(<>
-           <ViewUserSearch setSelectedRepo={setSelectedRepo} setSelectedUser={setSelectedUser} repos={repos} setRepos={setRepos} />
+           <ViewUserSearch setSelectedRepo={setSelectedRepo} selectedUser={selectedUser} setSelectedUser={setSelectedUser} repos={repos} setRepos={setRepos} />
            </>)
   } else {
     return (<>

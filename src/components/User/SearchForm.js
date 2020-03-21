@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
 import ghGetter from '../../ghGetter.js'
 import Error from '../Error'
+import UserHead from '../User/Head.js'
 
-const UserSearchForm = ({setSelectedUser, setRepos}) => {
+const UserSearchForm = ({selectedUser, setSelectedUser, setRepos}) => {
 
   let errorTimeout = null
 
@@ -23,6 +24,7 @@ const UserSearchForm = ({setSelectedUser, setRepos}) => {
     const request = ghGetter.getRepos(userName)
     request.then((response) => {
       setSelectedUser(userName)
+      setFormUserName('')
       setRepos(response)
     })
     .catch(error => {
@@ -39,6 +41,7 @@ const UserSearchForm = ({setSelectedUser, setRepos}) => {
             <button type={'submit'}>Find user</button>
             </form>
             <Error>{errorMsg}</Error>
+            <UserHead>{selectedUser}</UserHead>
           </div>
           )
 }
