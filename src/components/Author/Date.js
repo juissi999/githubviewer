@@ -1,7 +1,7 @@
 import React from 'react'
 
-const AuhthorDate = () => {
-  return (<div>AuhthorDate</div>)
+const AuhthorDate = ({date}) => {
+return (<span className={'authordate'}>{date}</span>)
 }
 
 export default AuhthorDate

@@ -1,7 +1,7 @@
 import React from 'react'
 
 const AuthorAvatar = () => {
-  return (<div>AuthorAvatar</div>)
+  return (<div></div>)
 }
 
 export default AuthorAvatar

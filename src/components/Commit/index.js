@@ -4,9 +4,9 @@ import Author from '../Author/'
 
 const Commit = ({commit}) => {
   console.log(commit)
-  return (<div>
-          <Author />
-          <CommitMsg />
+  return (<div className={'commit'}>
+          <Author author={commit.author}/>
+          <CommitMsg message={commit.message}/>
           </div>)
 }
 

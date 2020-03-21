@@ -1,7 +1,7 @@
 import React from 'react'
 
-const CommitMsg = () => {
-  return (<div>CommitMsg</div>)
+const CommitMsg = ({message}) => {
+  return (<span>{message}</span>)
 }
 
 export default CommitMsg
