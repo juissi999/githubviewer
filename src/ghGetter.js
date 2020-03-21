@@ -12,4 +12,9 @@ const getCommits = (userName, repoName) => {
   return request.then((response) => response.data)
 }
 
-export default {getRepos, getCommits}
+const getUser = (userName) => {
+  const request = axios.get(`${baseUrl}/users/${userName}`)
+  return request.then((response) => response.data)
+}
+
+export default {getRepos, getCommits, getUser}
