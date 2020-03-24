@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
-import ViewUserSearch from './View/UserSearch.js'
-import CommitDetails from './View/CommitDetails.js'
+import ViewUserSearch from './View/UserSearch'
+import CommitDetails from './View/CommitDetails'
 
 const App = () => {
 

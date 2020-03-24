@@ -1,7 +1,7 @@
 import React from 'react'
-import AuthorName from './Name.js'
-import AuthorAvatar from './Avatar.js'
-import AuthorDate from './Date.js'
+import AuthorName from './Name'
+import AuthorAvatar from './Avatar'
+import AuthorDate from './Date'
 
 const Author = ({name, commitdate, avatar_url}) => {
 

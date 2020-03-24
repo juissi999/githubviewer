@@ -1,5 +1,5 @@
 import React from 'react'
-import CommitMsg from './Msg.js'
+import CommitMsg from './Msg'
 import Author from '../Author/'
 
 const Commit = ({commit}) => {

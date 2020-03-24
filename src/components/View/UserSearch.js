@@ -1,6 +1,6 @@
 import React from 'react'
-import UserSearchForm from '../User/SearchForm.js'
-import RepositoryList from '../Repository/List.js'
+import UserSearchForm from '../User/SearchForm'
+import RepositoryList from '../Repository/List'
 
 const ViewUserSearch = ({selectedUser, setSelectedUser, repos, setRepos, setSelectedRepo}) => {
   return (<div>

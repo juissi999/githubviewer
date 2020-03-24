@@ -1,6 +1,6 @@
 import React  from 'react'
-import CommitList from '../Commit/List.js'
-import NavigationForm from '../NavigationForm/'
+import CommitList from '../Commit/List'
+import NavigationForm from '../Navigation/Form'
 
 const CommitDetails = ({selectedUser, selectedRepo, setSelectedRepo}) => {
 

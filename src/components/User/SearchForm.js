@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
-import ghGetter from '../../ghGetter.js'
+import ghGetter from '../../ghGetter'
 import Error from '../Error'
-import UserHead from '../User/Head.js'
+import UserHeader from '../User/Header'
 
 const UserSearchForm = ({selectedUser, setSelectedUser, setRepos}) => {
 
@@ -28,6 +28,7 @@ const UserSearchForm = ({selectedUser, setSelectedUser, setRepos}) => {
       setRepos(response)
     })
     .catch(error => {
+      setSelectedUser('')
       setRepos([])
       clearTimeout(errorTimeout)
       setErrorMsg(`${error}`)
@@ -41,7 +42,7 @@ const UserSearchForm = ({selectedUser, setSelectedUser, setRepos}) => {
             <button type={'submit'}>Find user</button>
             </form>
             <Error>{errorMsg}</Error>
-            <UserHead>{selectedUser}</UserHead>
+            <UserHeader>{selectedUser}</UserHeader>
           </div>
           )
 }

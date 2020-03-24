@@ -1,9 +1,9 @@
 import React from 'react'
 
-const UserHead = ({children}) => {
+const UserHeader = ({children}) => {
   return (<div className={'userhead'}>
             {children}
           </div>)
 }
 
-export default UserHead
+export default UserHeader
