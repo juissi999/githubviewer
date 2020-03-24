@@ -1,5 +1,6 @@
 import React from 'react'
-import UserHead from '../User/Head.js'
+import NavigationButton from './Button'
+import UserHeader from '../User/Header'
 
 const NavigationForm = ({selectedUser, selectedRepo, setSelectedRepo}) => {
 
@@ -9,8 +10,8 @@ const NavigationForm = ({selectedUser, selectedRepo, setSelectedRepo}) => {
   }
 
   return(<div>
-          <button onClick={onClick}>Back</button>
-          <UserHead>{`${selectedUser}/${selectedRepo}`}</UserHead>
+          <NavigationButton onClick={onClick}>Back</NavigationButton>
+          <UserHeader>{`${selectedUser}/${selectedRepo}`}</UserHeader>
          </div>)
 }
 
