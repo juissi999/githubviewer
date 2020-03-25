@@ -1,9 +1,12 @@
 import React from 'react'
+import {useHistory} from "react-router-dom"
 
-const Repository = ({repo, setSelectedRepo}) => {
+const Repository = ({user, repo}) => {
   
+  const history = useHistory()
+
   const onClick = () => {
-    setSelectedRepo(repo.name)
+    history.push(`/${user}/${repo.name}`)
   }
 
   return (<li>

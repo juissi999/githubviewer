@@ -1,22 +1,30 @@
 import React, {useState} from 'react'
-import ViewUserSearch from './View/UserSearch'
-import CommitDetails from './View/CommitDetails'
+import {
+  BrowserRouter as Router,
+  Switch, Route
+} from "react-router-dom"
+
+import CommitList from './Commit/List'
+import UserSearchForm from './User/SearchForm'
+import RepositoryList from './Repository/List'
 
 const App = () => {
 
-  const [repos, setRepos] = useState([])
-  const [selectedUser, setSelectedUser] = useState('')
-  const [selectedRepo, setSelectedRepo] = useState('')
-
-  if (selectedRepo === '') {
-    return(<>
-           <ViewUserSearch setSelectedRepo={setSelectedRepo} selectedUser={selectedUser} setSelectedUser={setSelectedUser} repos={repos} setRepos={setRepos} />
-           </>)
-  } else {
-    return (<>
-            <CommitDetails selectedUser={selectedUser} selectedRepo={selectedRepo} setSelectedRepo={setSelectedRepo}/>
-            </>)
-  }
+  return(
+    <Router>
+      <Switch>
+        <Route path="/:user/:repo">
+          <CommitList />
+        </Route>
+        <Route path="/:user">
+          <UserSearchForm />
+          <RepositoryList/>
+        </Route>
+        <Route path="/">
+          <UserSearchForm />
+        </Route>
+      </Switch>
+    </Router>)
 }
 
 export default App

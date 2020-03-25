@@ -1,24 +1,30 @@
 import React, {useState, useEffect}  from 'react'
+import {useParams} from "react-router-dom"
+
 import Error from '../Error/'
+import NavigationForm from '../Navigation/Form'
 import Commit from './'
 import ghGetter from '../../ghGetter'
 
 const maxCommitCount = 10
 
-const CommitList = ({selectedUser, selectedRepo}) => {
+const CommitList = () => {
 
   let errorTimeout = null
 
   const [commits, setCommits] = useState([])
   const [errorMsg, setErrorMsg] = useState('')
 
+  const user = useParams().user
+  const repo = useParams().repo
+
+  // query commits for this repository at start
   useEffect(() => {
-    // use effect hook to query commits for this repository at start
-    ghGetter.getCommits(selectedUser, selectedRepo)
-    .then((c) => {
+    const request = ghGetter.getCommits(user, repo)
+    request.then((c) => {
       setCommits(c)
     })
-    .catch(error=>{
+    .catch(error => {
       clearTimeout(errorTimeout)
       setErrorMsg(`${error}`)
       errorTimeout = setTimeout(()=>setErrorMsg(''), 2000)
@@ -34,10 +40,11 @@ const CommitList = ({selectedUser, selectedRepo}) => {
     })
 
     // map the remaining commits and return react elements
-    return (firstCommits.map((c,i)=><Commit key={i} commit={c}/>))
+    return (firstCommits.map((c,i) => <Commit key={i} commit={c}/>))
   }
 
   return (<div>
+            <NavigationForm user={user} repo={repo}/>
             <Error>{errorMsg}</Error>
             <div>
               {mapCommits()}
