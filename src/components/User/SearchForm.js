@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {useHistory} from "react-router-dom"
 
-const UserSearchForm = ({}) => {
+const UserSearchForm = () => {
 
   const [formUserName, setFormUserName] = useState('')
   const history = useHistory()
