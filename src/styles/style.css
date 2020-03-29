@@ -39,14 +39,30 @@ button {
   font-size: 12px;
 }
 
+.authorclicked {
+  margin-bottom:6px;
+}
+
+.authorclicked .authoravatar {
+  transition-duration: 0.2s;
+  height:150px;
+  width:auto;
+}
+
+.authorclicked .authorname, .authordate {
+  padding:3px 0px 3px 1px;
+  font-size: 12px;
+}
+
 .authorname, .authordate {
   text-align: center;
   padding:3px 0px 3px 8px;
 }
 
 .authoravatar {
+  transition-duration: 0.2s;
   height:23px;
-  width:23px;
+  width:auto;
 }
 
 .authoravatar img {
