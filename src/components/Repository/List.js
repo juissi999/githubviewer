@@ -22,7 +22,7 @@ const RepositoryList = () => {
   useEffect(()=> {
 
     // get the actual username (case sensitive)
-    // then when username is gotten get repositories for the user
+    // when username is gotten get repositories for the user
     // deal with all the errors in one catch-block
     ghGetter.getUser(rawUser)
       .then((userinfo) => {
@@ -43,8 +43,12 @@ const RepositoryList = () => {
   }, [rawUser])
 
   return (<div>
-            <Error>{errorMsg}</Error>
-            <UserHeader>{userName}</UserHeader>
+            <Error>
+              {errorMsg}
+            </Error>
+            <UserHeader>
+              {userName}
+            </UserHeader>
             <ul>
               {repos.map((repo, i) => {
                 return(<Repository key={i} user={userName} repo={repo}/>)

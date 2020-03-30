@@ -6,7 +6,8 @@ const Commit = ({commit}) => {
 
   const [avatarUrl, setAvatarUrl] = useState(null)
 
-  useEffect(()=> {
+  // set hook to render avatar image if author avatar is present
+  useEffect(() => {
     if (commit.author !== null) {
       setAvatarUrl(commit.author.avatar_url)
     }
@@ -14,7 +15,9 @@ const Commit = ({commit}) => {
 
   return (<div className={'commit'}>
             <Author name={commit.commit.author.name} commitdate={commit.commit.author.date} avatar_url={avatarUrl}/>
-            <CommitMsg>{commit.commit.message}</CommitMsg>
+            <CommitMsg>
+              {commit.commit.message}
+            </CommitMsg>
           </div>)
 }
 

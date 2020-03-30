@@ -8,6 +8,7 @@ import CommitList from './Commit/List'
 import UserSearchForm from './User/SearchForm'
 import RepositoryList from './Repository/List'
 
+// Main entry point for the app
 const App = () => {
 
   return(

@@ -15,6 +15,7 @@ const CommitList = () => {
   const [commits, setCommits] = useState([])
   const [errorMsg, setErrorMsg] = useState('')
 
+  // url parameters
   const user = useParams().user
   const repo = useParams().repo
 
@@ -35,7 +36,7 @@ const CommitList = () => {
     // first filter all commits array to get at most maxCommitCount commits
     const firstCommits = commits.filter((c, i) => {
       if (i < maxCommitCount) {
-        return c
+        return true
       }
     })
 
@@ -45,7 +46,9 @@ const CommitList = () => {
 
   return (<div>
             <NavigationForm user={user} repo={repo}/>
-            <Error>{errorMsg}</Error>
+            <Error>
+              {errorMsg}
+            </Error>
             <div>
               {mapCommits()}
             </div>

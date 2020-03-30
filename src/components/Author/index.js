@@ -5,7 +5,7 @@ import AuthorDate from './Date'
 
 const Author = ({name, commitdate, avatar_url}) => {
 
-  const [classes, setClasses] = useState('author')
+  const [divClass, setDivClass] = useState('author')
 
   const renderDate = (ghdate) => {
     // clear the daystring to be more human readable
@@ -14,13 +14,14 @@ const Author = ({name, commitdate, avatar_url}) => {
   }
 
   const onClick = () => {
-    classes === 'author' ? setClasses('authorclicked'):setClasses('author')
+    // swap class for the element (purpose: to allow zoom)
+    divClass === 'author' ? setDivClass('authorclicked'):setDivClass('author')
   }
 
-  return (<div className={classes} onClick={onClick}>
-          <AuthorAvatar url={avatar_url}/>
-          <AuthorName name={name}/>
-          <AuthorDate date={renderDate(commitdate)}/>
+  return (<div className={divClass} onClick={onClick}>
+            <AuthorAvatar url={avatar_url}/>
+            <AuthorName name={name}/>
+            <AuthorDate date={renderDate(commitdate)}/>
           </div>)
 }
 

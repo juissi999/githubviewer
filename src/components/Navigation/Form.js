@@ -7,13 +7,17 @@ const NavigationForm = ({user, repo}) => {
   const history = useHistory()
 
   const onClick = () => {
-    // back-button causes re-rendering of the repository-list with hook
+    // back-button goes back to users repository listing
     history.push(`/${user}`)
   }
 
   return(<div>
-          <NavigationButton onClick={onClick}>back</NavigationButton>
-          <UserHeader>{`${user}/${repo}`}</UserHeader>
+          <NavigationButton onClick={onClick}>
+            back
+          </NavigationButton>
+          <UserHeader>
+            {`${user}/${repo}`}
+          </UserHeader>
          </div>)
 }
 

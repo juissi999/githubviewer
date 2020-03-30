@@ -11,16 +11,19 @@ const UserSearchForm = () => {
   }
 
   const onSubmit = (event) => {
-    // callback on form submit
-    event.preventDefault()
+    // callback on form submit, prevent any POST happening
+    // and use react router to handle call
 
+    event.preventDefault()
     history.push(`/${formUserName}`)
   }
         
   return (<div>
             <form onSubmit={onSubmit} className={'usersearch'}>
-            <input onChange={onChange} value={formUserName}/>
-            <button type={'submit'}>Find user</button>
+              <input onChange={onChange} value={formUserName}/>
+              <button type={'submit'}>
+                Find user
+              </button>
             </form>
           </div>)
 }

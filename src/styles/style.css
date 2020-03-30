@@ -5,16 +5,6 @@ body {
   color: #333;
 }
 
-input {
-  margin-right:2px;
-}
-
-ul {
-  list-style-type: none;
-  margin: 0px;
-  padding-left: 5px;
-}
-
 button:hover {
   border-radius:4px;
   padding:4px;
@@ -28,8 +18,14 @@ button {
   padding:5px;
 }
 
-.navigationbutton {
-  font-size:18px;
+input {
+  margin-right:2px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0px;
+  padding-left: 5px;
 }
 
 .author {
@@ -37,6 +33,17 @@ button {
   padding:1px;
   margin-bottom:5px;
   font-size: 12px;
+}
+
+.authoravatar {
+  transition-duration: 0.2s;
+  height:23px;
+  width:auto;
+}
+
+.authoravatar img {
+  height: 100%;
+  width:auto;
 }
 
 .authorclicked {
@@ -59,17 +66,6 @@ button {
   padding:3px 0px 3px 8px;
 }
 
-.authoravatar {
-  transition-duration: 0.2s;
-  height:23px;
-  width:auto;
-}
-
-.authoravatar img {
-  height: 100%;
-  width:auto;
-}
-
 .commit {
   border-radius:5px; 
   border: 1px solid #d1d5da;
@@ -77,11 +73,15 @@ button {
   margin:6px;
 }
 
+.error {
+  color:red;
+}
+
+.navigationbutton {
+  font-size:18px;
+}
+
 .userhead {
   margin:8px;
   font-size:25px;
-}
-
-.error {
-  color:red;
 }
